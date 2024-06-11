@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "digicafe",
+    "slug": "digicafe",
+    "version": "1.0.5",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.venkatesh92.digicafe"
+    },
+    "android": {
+      "versionCode": 5,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/ic_logo.png"
+      },
+      "package": "com.venkatesh92.digicafe"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0d3dce52-76c5-4c12-aba9-6a57555ee3a4"
+      }
+    },
+    "sdkVersion": "51.0.0"
+  }
+}
