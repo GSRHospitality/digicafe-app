@@ -6,15 +6,13 @@ import {
   Platform,
   StatusBar,
   BackHandler,
-  ActivityIndicator,
+  Alert,
 } from "react-native";
 import { WebView } from "react-native-webview";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 
 const App = () => {
-  const [url, setUrl] = useState("https://digicafe.in");
   const [canGoBack, setCanGoBack] = useState(false);
-  const [loading, setLoading] = useState(false);
   const webViewRef = useRef(null);
 
   useEffect(() => {
@@ -31,7 +29,9 @@ const App = () => {
       backAction
     );
 
-    return () => backHandler.remove();
+    return () => {
+      backHandler.remove();
+    };
   }, [canGoBack]);
 
   const handleNavigationStateChange = (navState) => {
@@ -40,21 +40,17 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.AndroidSafeArea}>
-      <View style={styles.webViewContainer}>
+      <View style={styles.container}>
         <WebView
           ref={webViewRef}
-          source={{ uri: url }}
-          onError={(error) => console.error("WebView error:", error)}
-          style={styles.webView}
-          onLoadStart={() => setLoading(true)}
-          onLoadEnd={() => setLoading(false)}
+          source={{ uri: "https://digicafe.in" }}
+          onError={(error) => {
+            console.error("WebView error:", error);
+            Alert.alert("Error", "Failed to load the page.");
+          }}
+          style={styles.container}
           onNavigationStateChange={handleNavigationStateChange}
         />
-        {loading && (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#0000ff" />
-          </View>
-        )}
       </View>
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
@@ -63,12 +59,6 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
-  webViewContainer: {
-    flex: 1,
-  },
-  webView: {
     flex: 1,
   },
   loadingContainer: {

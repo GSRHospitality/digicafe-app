@@ -2,9 +2,9 @@
   "expo": {
     "name": "digicafe",
     "slug": "digicafe",
-    "version": "1.0.5",
+    "version": "1.1.13",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/digicafe_android.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -23,9 +23,10 @@
       "bundleIdentifier": "com.venkatesh92.digicafe"
     },
     "android": {
-      "versionCode": 5,
+      "versionCode": 13,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/ic_logo.png"
+        "foregroundImage": "./assets/newlogo.png",
+        "backgroundColor": "#FFFFFF"
       },
       "package": "com.venkatesh92.digicafe"
     },
